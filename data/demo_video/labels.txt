@@ -1,0 +1,12 @@
+tailing
+laydown
+grooming
+footpush
+walkrun
+sitdown
+armstretch
+roll
+getdown
+lying
+heading
+arch
