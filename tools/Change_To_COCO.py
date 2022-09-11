@@ -169,8 +169,8 @@ for train_valid_path in find_path(dataset_path):
                     dog_annotations_output += annotations
                     dog_categories_output = categories
 
-            # if '[원천]' in str(label_data_path):
-                # img_data_process(label_data_path)
+            if '[원천]' in str(label_data_path):
+                img_data_process(label_data_path)
 
     cat_json_output['images'] = cat_images_output
     cat_json_output['det_pose_annotation'] = cat_annotations_output
