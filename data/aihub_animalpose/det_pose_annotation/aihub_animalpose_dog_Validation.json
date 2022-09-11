@@ -7789,7 +7789,7 @@
       "id": 2885163
     }
   ],
-  "annotations": [
+  "det_pose_annotation": [
     {
       "segmentation": [],
       "keypoints": [

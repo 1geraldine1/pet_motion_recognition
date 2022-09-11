@@ -6427,7 +6427,7 @@
       "id": 1598459
     }
   ],
-  "annotations": [
+  "det_pose_annotation": [
     {
       "segmentation": [],
       "keypoints": [

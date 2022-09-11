@@ -1,5 +1,5 @@
 {
   "images": "images",
-  "annotations": "annotations",
+  "det_pose_annotation": "det_pose_annotation",
   "categories": "categories"
 }

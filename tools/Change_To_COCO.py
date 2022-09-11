@@ -35,7 +35,7 @@ def label_data_process(label_data_path):
             height = json_object['metadata']['height']
             width = json_object['metadata']['width']
 
-            for data in json_object['det_pose_annotation']:
+            for data in json_object['annotations']:
                 img_file_path = label_data_path_2.replace('.json', '').replace('[라벨]', '[원천]')
                 img_file_name = 'frame_' + str(data['frame_number']) + '_timestamp_' + str(
                     data['timestamp']) + '.jpg'
