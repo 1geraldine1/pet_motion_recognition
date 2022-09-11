@@ -1,7 +1,7 @@
 import os
 from collections import defaultdict
 
-data_dir = 'data/annotated_data'
+data_dir = '../data/annotated_data'
 species = ['cat','dog']
 action_dict = {
     'dog': ['sit', 'bodylower', 'taillow', 'turn', 'lying', 'heading', 'walkrun', 'tailing', 'feetup', 'footup',

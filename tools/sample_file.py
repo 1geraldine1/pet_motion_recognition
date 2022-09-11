@@ -1,7 +1,7 @@
 import pandas as pd
 
 pkl_cat = pd.read_pickle('./cat_train.pkl')
-pkl_sample = pd.read_pickle('data/aihub_animalpose/det_pose_annotation/aihub_animalpose_cat_Training.pkl')
+pkl_sample = pd.read_pickle('../data/aihub_animalpose/det_pose_annotation/aihub_animalpose_cat_Training.pkl')
 
 pkl1 = pd.DataFrame(pkl_cat)
 pkl2 = pd.DataFrame(pkl_sample)

@@ -63,24 +63,24 @@ def parse_args():
     parser.add_argument(
         '--det-config',
         default='model/detection/config/yolov3_mobilenetv2_mstrain-416_300e_coco.py',
-        help='human detection config file path (from mmdet)')
+        help='animal detection config file path (from mmdet)')
     parser.add_argument(
         '--det-checkpoint',
         default='model/detection/best_bbox_mAP_epoch_77.pth',
-        help='human detection checkpoint file/url')
+        help='animal detection checkpoint file/url')
     parser.add_argument(
         '--pose-config',
         default='model/pose/hrnet_w32_animalpose_256x256.py',
-        help='human pose estimation config file path (from mmpose)')
+        help='animal pose estimation config file path (from mmpose)')
     parser.add_argument(
         '--pose-checkpoint',
         default='model/pose/best_AP_epoch_10.pth',
-        help='human pose estimation checkpoint file/url')
+        help='animal pose estimation checkpoint file/url')
     parser.add_argument(
         '--det-score-thr',
         type=float,
         default=0.9,
-        help='the threshold of human detection score')
+        help='the threshold of animal detection score')
     parser.add_argument(
         '--label-map',
         default='data/sample_vid/labels.txt',
@@ -111,7 +111,7 @@ def frame_extraction(video_path, short_side):
         video_path (str): The video_path.
     """
     # Load the video, extract frames into ./tmp/video_name
-    target_dir = osp.join('./tmp', osp.basename(osp.splitext(video_path)[0]))
+    target_dir = osp.join('../tmp', osp.basename(osp.splitext(video_path)[0]))
     os.makedirs(target_dir, exist_ok=True)
     # Should be able to handle videos up to several hours
     frame_tmpl = osp.join(target_dir, 'img_{:06d}.jpg')
@@ -140,24 +140,24 @@ def frame_extraction(video_path, short_side):
 
 
 def detection_inference(args, frame_paths):
-    """Detect human boxes given frame paths.
+    """Detect animal boxes given frame paths.
 
     Args:
         args (argparse.Namespace): The arguments.
         frame_paths (list[str]): The paths of frames to do detection inference.
 
     Returns:
-        list[np.ndarray]: The human detection results.
+        list[np.ndarray]: The animal detection results.
     """
     model = init_detector(args.det_config, args.det_checkpoint, args.device)
     # assert model.CLASSES[0] == 'person', ('We require you to use a detector '
     #                                       'trained on COCO')
     results = []
-    print('Performing Human Detection for each frame')
+    print('Performing animal Detection for each frame')
     prog_bar = mmcv.ProgressBar(len(frame_paths))
     for frame_path in frame_paths:
         result = inference_detector(model, frame_path)
-        # We only keep human detections with score larger than det_score_thr
+        # We only keep animal detections with score larger than det_score_thr
         result = result[0][result[0][:, 4] >= args.det_score_thr]
         results.append(result)
         prog_bar.update()
@@ -168,7 +168,7 @@ def pose_inference(args, frame_paths, det_results):
     model = init_pose_model(args.pose_config, args.pose_checkpoint,
                             args.device)
     ret = []
-    print('Performing Human Pose Estimation for each frame')
+    print('Performing animal Pose Estimation for each frame')
     prog_bar = mmcv.ProgressBar(len(frame_paths))
     for f, d in zip(frame_paths, det_results):
         # Align input format

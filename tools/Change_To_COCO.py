@@ -6,7 +6,7 @@ import pickle
 
 # 원본 데이터셋 디렉터리 및 변환 결과물 저장 디렉터리
 dataset_path = 'D:\\AnimalPoseData\\AnimalPoseData'
-output_path = 'data/aihub_animalpose/'
+output_path = '../data/aihub_animalpose/'
 
 image_id = 0
 

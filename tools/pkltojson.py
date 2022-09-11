@@ -28,7 +28,7 @@ cat_img_shape = []
 dog_img_shape = []
 
 for species in ['CAT', 'DOG']:
-    with open(os.path.join('model', 'annotation', species, 'config.yaml')) as f:
+    with open(os.path.join('../model', 'annotation', species, 'config.yaml')) as f:
         shape_annotation = yaml.load(f, Loader=yaml.FullLoader)
 
     for vid_dirs in shape_annotation['video_sets']:
@@ -41,7 +41,7 @@ for species in ['CAT', 'DOG']:
 cat_img_shape = iter(cat_img_shape)
 dog_img_shape = iter(dog_img_shape)
 
-data_folder_dir = 'data/annotated_data'
+data_folder_dir = '../data/annotated_data'
 data_folder_list = os.listdir(data_folder_dir)
 
 for idx, folder_name in tqdm(enumerate(data_folder_list)):
