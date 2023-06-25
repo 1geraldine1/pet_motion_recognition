@@ -16,6 +16,12 @@ conda create -n {가상환경 } -y
 conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch
 ```
 
+<details>
+<summary>deprecated</summary>
+
+<!-- summary 아래 한칸 공백 두어야함 -->
+## 이전 버전에서의 mm라이브러리 설치 과정
+
 3. mmcv-full 설치
 ```
 pip install -U openmim
@@ -49,17 +55,38 @@ pip install -r requirements/build.txt
 pip install -v -e .
 cd ..
 ```
+</details>
 
-7. moviepy 설치 
+3. mmaction 관련 라이브러리 설치 (mmengine, mmcv, mmdetection, mmpose)
+
+```
+pip install -U openmim
+mim install mmengine
+mim install mmcv
+mim install mmdet
+mim install mmpose
+```
+
+4. mmaction2 설치
+
+```
+git clone https://github.com/open-mmlab/mmaction2.git
+cd mmaction2
+pip install -v -e .
+```
+  
+
+5. moviepy 설치 
 ```
 pip install moviepy
 ```
 
-8. sklearn 설치 (훈련 데이터 생성용)
+6. sklearn 설치 (훈련 데이터 생성용)
 ```
 pip install sklearn
 ```
-9. pytables 설치 (훈련 데이터 생성용)
+
+7. pytables 설치 (훈련 데이터 생성용)
 ```
 conda install pytables
 ```
